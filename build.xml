@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+
+<project name="JPortForwarder" default="compile">
+
+	<property name="jarfile" value="JPortForwarder.jar"/>
+	<property name="zipfile" value="JPortForwarder.zip"/>
+	<property name="deploydir" value="deploy"/>
+	<property name="builddir" value="build"/>
+	<property name="srcdir" value="src"/>
+
+	<path id="compile.classpath">
+		<pathelement location="lib"/>
+		<fileset dir="lib">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+
+	<target name="clean">
+		<delete file="${deploydir}/${zipfile}"/>
+		<delete file="${deploydir}/${jarfile}"/>
+		<delete dir="${builddir}/jportforwarder"/>
+	</target>
+
+	<target name="compile" depends="copy">
+		<javac srcdir="${srcdir}"
+			destdir="${builddir}"
+			debug="on"
+			listfiles="yes">
+			<classpath refid="compile.classpath"/>
+		</javac>
+	</target>
+
+	<target name="copy">
+		<mkdir dir="${builddir}/jportforwarder"/>
+		<copy todir="${builddir}/jportforwarder">
+			<fileset dir="${srcdir}/jportforwarder" includes="*.gif"/>
+		</copy>
+	</target>
+	
+	<target name="makejar" depends="compile">
+		<mkdir dir="${deploydir}"/>
+		<delete file="${deploydir}/${jarfile}"/>
+		<jar destfile="${deploydir}/${jarfile}" basedir="${builddir}" includes="jportforwarder/**"/>
+	</target>
+	
+	<target name="makezip" depends="makejar">
+		<zip destfile="${deploydir}/${zipfile}" basedir="${deploydir}"
+			includes="**"
+			excludes="${zipfile}"/>
+	</target>
+
+</project>
+

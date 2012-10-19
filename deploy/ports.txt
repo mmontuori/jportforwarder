@@ -1,0 +1,12 @@
+# JPortForwarder config file
+# the syntax is:
+# protocol [ip-host:]port ip-host:port [application handler]
+# example to redirect a telnet port from localhost to 1.2.3.4 use:
+# tcp 23 1.2.3.4:23
+# to redirect a ftp port from a multihomed machine 1.2.3.4 to 2.3.4.5 use
+# tcp 1.2.3.4:21 2.3.4.5:21 ftp
+# to redirect an ssl encrypted daemon to a tcp daemon use
+# ssl-tcp port ip:port
+# to redirect a tcp socket to an ssl socket use
+# tcp-ssl port ip:port
+# the following line redirect *:80 to yahoo
