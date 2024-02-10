@@ -1,0 +1,6 @@
+{
+    "name": "JBinaryTree",
+    "build": {
+        "dockerfile": "Dockerfile"
+    }
+}
