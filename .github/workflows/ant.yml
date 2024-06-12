@@ -24,4 +24,4 @@ jobs:
     - name: create lib directory
       run: mkdir lib
     - name: Build with Ant
-      run: ant -noinput -buildfile build.xml
+      run: ant -noinput -buildfile build.xml makezip
