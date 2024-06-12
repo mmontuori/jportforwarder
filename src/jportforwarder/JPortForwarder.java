@@ -116,8 +116,7 @@ public class JPortForwarder {
 						if (protocol.equalsIgnoreCase("ssl-tcp")) {
 							if (!ssfInitialized) {
 								System.setProperty("http.keepAlive", "false");
-								Security
-										.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+								//Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
 
 								char[] passphrase = null;
 								if (sslPassword != null && sslFile != null) {
@@ -162,8 +161,7 @@ public class JPortForwarder {
 							 * (SSLSocketFactory)SSLSocketFactory.getDefault();
 							 */
 							System.setProperty("http.keepAlive", "false");
-							java.security.Security
-									.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+							//java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
 							System.setProperty("http.keepAlive", "false");
 
 							if (sslFile != null) {
