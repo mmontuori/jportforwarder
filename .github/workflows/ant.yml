@@ -25,3 +25,10 @@ jobs:
       run: mkdir lib
     - name: Build with Ant
       run: ant -noinput -buildfile build.xml makezip
+    - name: Push deployment  file back to repo
+      run: |
+        git config --global user.email "git@github.com"
+        git config --global user.name "GITHUB Action"
+        git add deploy
+        git commit -m 'updated build from GITHUB action'
+        git push
