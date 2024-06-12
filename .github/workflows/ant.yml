@@ -22,6 +22,6 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
     - name: create lib directory
-      run: mkdir liv
+      run: mkdir lib
     - name: Build with Ant
       run: ant -noinput -buildfile build.xml
