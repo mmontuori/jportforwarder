@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM mmontuori/javaenv:latest
 
 RUN apt update
-RUN apt -y install wget default-jre ant git
+
